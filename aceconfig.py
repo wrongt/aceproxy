@@ -53,7 +53,7 @@ class AceConfig(acedefconfig.AceDefConfig):
     # HTTP Server host
     httphost = '0.0.0.0'
     # HTTP Server port
-    httpport = 8000
+    httpport = 8008
     # If started as root, drop privileges to this user.
     # Leave empty to disable.
     aceproxyuser = ''
