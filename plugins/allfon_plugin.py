@@ -40,7 +40,7 @@ class Allfon(object):
                  self.channels = {}
                  m = requests.auth.hashlib.md5()
                  logging.info('[%s]: playlist %s downloaded' % (self.__class__.__name__, config.url))
-                 pattern = requests.utils.re.compile(r',(?P<name>.+)[\r\n].+[\r\n].+[\r\n](?P<url>[^\r\n]+)?')
+                 pattern = requests.utils.re.compile(r',(?P<name>.+)[\r\n](?P<url>[^\r\n]+)?')
                  urlpattern = requests.utils.re.compile(r'^(acestream|infohash)://[0-9a-f]{40}$|^(http|https)://.*.(acelive|acestream|acemedia|torrent)$')
                  for match in pattern.finditer(r.text, requests.auth.re.MULTILINE):
                     itemdict = match.groupdict()

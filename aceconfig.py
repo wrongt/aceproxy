@@ -62,7 +62,7 @@ class AceConfig(acedefconfig.AceDefConfig):
     # Or change to whatever IP you want to listen on this IP only
     httphost = 'auto'
     # HTTP Server port (8081 is recommended when using the plugin p2pproxy with TTV widget on SmartTV)
-    httpport = 8000
+    httpport = 8009
     # If started as root, drop privileges to this user.
     # Leave empty to disable.
     aceproxyuser = ''
@@ -94,18 +94,20 @@ class AceConfig(acedefconfig.AceDefConfig):
     # contains the fmt=mp2. It means that the 'mp2' command will be used for transcoding. You may add any number
     # of commands to this dictionary. Commands must have unique names in dictionary !
     #
+    transcode = True
     transcodecmd = {}
     #-----------------------------------------------------
     # Using ffmpeg
     #-----------------------------------------------------
-    #transcodecmd['100k'] = 'ffmpeg -i - -c:a copy -b 100k -f mpegts -'.split()
-    #transcodecmd['mp2'] = 'ffmpeg -i - -c:a mp2 -c:v mpeg2video -f mpegts -qscale:v 2 -'.split()
-    #transcodecmd['mkv'] = 'ffmpeg -i - -map 0 -c:v copy -c:a copy -f matroska -'.split()
+    transcodecmd['100k'] = 'ffmpeg -i - -c:a copy -b 100k -f mpegts -'.split()
+    transcodecmd['mp2'] = 'ffmpeg -i - -c:a mp2 -c:v mpeg2video -f mpegts -qscale:v 2 -'.split()
+    transcodecmd['mkv'] = 'ffmpeg -i - -map 0 -c:v copy -c:a copy -f matroska -'.split()
     transcodecmd['default'] = 'ffmpeg -i - -map 0 -c:a copy -c:v copy -f mpegts -'.split()
+    transcodecmd['ffmpeg'] = 'ffmpeg -i - -map 0 -c:a copy -c:v copy -f mpegts -'.split()
     #-----------------------------------------------------
     # Using VLC (if cvlc is not installed use 'vlc -I dummy' instead)
     #-----------------------------------------------------
-    #transcodecmd['mp4'] = 'cvlc --rc-fake-tty - --sout-all --sout=#transcode{vcodec=h264,vb=1024,acodec=mp4a,ab=192,channels=2,deinterlace}:std{access=file,mux=ts{use-key-frames},dst=-}'.split()
+    transcodecmd['mp4'] = 'cvlc --rc-fake-tty - --sout-all --sout=#transcode{vcodec=h264,vb=1024,acodec=mp4a,ab=192,channels=2,deinterlace}:std{access=file,mux=ts{use-key-frames},dst=-}'.split()
     #transcodecmd['default'] = 'cvlc - --sout-all --sout=#std{access=file,mux=ts{use-key-frames},dst=-}'.split()
     #
     # ----------------------------------------------------

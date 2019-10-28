@@ -10,7 +10,7 @@ Allfon.tv Playlist Downloader Plugin configuration file
 proxies = {}
 
 # Insert your allfon.tv playlist URL here or path to file ('file:///path/to/file' or 'file:///C://path//to//file' for Windows OS)
-url = 'http://allfon-tv.com/autogenplaylist/allfontv.m3u'
+url = 'http://192.168.5.110:8888/ace.m3u'
 
 # EPG urls & EPG timeshift
 tvgurl = 'https://iptvx.one/epg/epg.xml.gz'
